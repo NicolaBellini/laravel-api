@@ -1,0 +1,21 @@
+.aside {
+    width: 200px;
+    background-color: #818181;
+    padding: 10px;
+    height: 100vh;
+    position: fixed;
+    ul {
+        padding: 10px 0 0 15px;
+        li {
+            list-style: none;
+            margin-bottom: 20px;
+            a {
+                text-decoration: none;
+                color: black;
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+    }
+}
