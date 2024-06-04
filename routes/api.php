@@ -16,3 +16,10 @@ use App\Http\Controllers\api\pageController;
 */
 
 Route::get('/projects', [pageController::class, 'index']);
+Route::get('/project-detail/{slug}', [pageController::class, 'getProjectBySlug']);
+
+
+
+Route::get('/technologies', [pageController::class, 'technologies']);
+
+Route::get('/types', [pageController::class, 'types']);
