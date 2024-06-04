@@ -30,7 +30,18 @@ class pageController extends Controller
     }
     public function getProjectBySlug($slug)
     {
-        $projects = Project::where('slug', $slug)->with('type', 'technologies')->first();
-        return response()->json($projects);
+        $project = Project::where('slug', $slug)->with('type', 'technologies')->first();
+        if ($project) {
+            $succes = true;
+            if ($project->image) {
+                $project->image = asset('storage/' . $project->image);
+            } else {
+                $project->image = asset('img/placeholder.png');
+                $project->image_original_name = 'no image';
+            }
+        } else {
+            $succes = false;
+        }
+        return response()->json($project);
     }
 }
