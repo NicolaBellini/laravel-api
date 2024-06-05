@@ -24,6 +24,8 @@ Route::get('/project-detail/{slug}', [pageController::class, 'getProjectBySlug']
 Route::get('/technologies', [pageController::class, 'technologies']);
 
 Route::get('/types', [pageController::class, 'types']);
+Route::get('/getProjectByType/{typeId}', [pageController::class, 'getProjectByType']);
+
 
 // rotta email
 Route::post('/send-mail', [leadController::class, 'store']);
