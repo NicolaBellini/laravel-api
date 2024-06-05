@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Technology;
 use App\Models\Type;
+use Illuminate\Support\Facades\Storage;
 
 class pageController extends Controller
 {
@@ -23,20 +24,23 @@ class pageController extends Controller
         $technologies = Technology::all();
         return response()->json($technologies);
     }
+
     public function types()
     {
         $types = Type::all();
         return response()->json($types);
     }
+
     public function getProjectBySlug($slug)
     {
         $project = Project::where('slug', $slug)->with('type', 'technologies')->first();
         if ($project) {
             $succes = true;
             if ($project->image) {
-                $project->image = asset('storage/' . $project->image);
+                // $project->image = asset('storage/' . $project->image);
+                $project->image = Storage::url($project->image);
             } else {
-                $project->image = asset('img/placeholder.png');
+                $project->image = Storage::url('img/placeholder.png');
                 $project->image_original_name = 'no image';
             }
         } else {
