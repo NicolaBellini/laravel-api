@@ -80,4 +80,27 @@ class pageController extends Controller
 
         return response()->json(['success' => true, 'projects' => $projects]);
     }
+
+    public function getProjectByTechnology($technologyId)
+    {
+        $technology = Technology::with('projects')->find($technologyId);
+
+        if (!$technology) {
+            return response()->json(['success' => false, 'message' => 'Technology not found'], 404);
+        }
+
+        $projects = $technology->projects->map(function ($project) {
+            if ($project->image) {
+                // Modifica l'URL dell'immagine per includere il percorso di memorizzazione pubblico
+                $project->image = Storage::url($project->image);
+            } else {
+                // Se l'immagine non è disponibile, usa un'immagine placeholder
+                $project->image = Storage::url('img/placeholder.png');
+                $project->image_original_name = 'no image';
+            }
+            return $project;
+        });
+
+        return response()->json(['success' => true, 'projects' => $projects]);
+    }
 }
