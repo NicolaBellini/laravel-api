@@ -27,8 +27,17 @@ class pageController extends Controller
 
     public function types()
     {
-        $types = Type::all();
-        return response()->json($types);
+        $types = Type::with('projects')->get();
+
+
+        foreach ($types as $type) {
+            $typeProjects[] = [
+
+                'projects' => $type->projects
+            ];
+        }
+
+        return response()->json(compact('types'));
     }
 
     public function getProjectBySlug($slug)
