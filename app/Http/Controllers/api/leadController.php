@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Lead;
 
 class leadController extends Controller
 {
@@ -35,6 +36,9 @@ class leadController extends Controller
         }
         // salvo l' email nel db
 
+        $new_lead = new Lead();
+        $new_lead->fill($data);
+        $new_lead->save();
         // invio l' email
 
         // restituisco il json con l' avvenuto invio
