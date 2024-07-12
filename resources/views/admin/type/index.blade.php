@@ -67,7 +67,7 @@
 
 
             <td class="d-flex">
-            <button onclick="submitForm({{$type->id}})">modifica</button>
+            <button class="btn btn-warning" onclick="submitForm({{$type->id}})">modifica</button>
 
             <form action="{{route('admin.type.destroy', $type)}}" method="post" id="form-edit-{{$type->id}}">
                 @csrf

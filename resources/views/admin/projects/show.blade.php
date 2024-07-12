@@ -22,7 +22,7 @@
 
 @endif
 
-<img class="img-fluid w-50 " src="{{asset('storage/'.$project->image)}}" alt="{{$project->name}}" onerror="this.src='/img/placeholder.avif'">
+<img class="img-fluid w-50 " src="{{asset('storage/'.$project->image)}}" alt="{{$project->name}}" onerror="this.src='/storage/img/placeholder.png'">
 <p>{{$project->image_original_name}}</p>
 
 

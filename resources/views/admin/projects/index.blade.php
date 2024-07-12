@@ -50,7 +50,7 @@
         </td>
 
 
-        <td><img src="{{asset('storage/'. $project->image)}}" style="height: 100px" onerror="this.src='/img/placeholder.png'" alt=""></td>
+        <td><img src="{{asset('storage/'. $project->image)}}" style="height: 100px" onerror="this.src='/storage/img/placeholder.png'" alt=""></td>
         <td class="d-flex align-item-center" >
             <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-warning h-25">modifica</a>
             <a href="{{route('admin.projects.show', $project)}}" class="btn btn-primary h-25">vedi</a>
