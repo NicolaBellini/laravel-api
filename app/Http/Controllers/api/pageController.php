@@ -49,7 +49,7 @@ class pageController extends Controller
                 // $project->image = asset('storage/' . $project->image);
                 $project->image = Storage::url($project->image);
             } else {
-                $project->image = Storage::url('img/placeholder.png');
+                $project->image = Storage::url('storage/img/placeholder.png');
                 $project->image_original_name = 'no image';
             }
         } else {
