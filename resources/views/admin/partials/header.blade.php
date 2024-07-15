@@ -4,7 +4,7 @@
     <div class="d-flex">
         <a class="navbar-brand" >BOOLPRESS</a>
         <a class="navbar-brand"  href="{{route('admin.home')}}">Home</a>
-        <a class="navbar-brand"  href="{{route('home')}}">visita il sito</a>
+        <a class="navbar-brand"  href="http://localhost:5174/">visita il sito</a>
         <p class="mt-2">{{Auth::user()->name}}</p>
         <form action="{{route('logout')}}" class="ms-2" method="POST">
                     @csrf

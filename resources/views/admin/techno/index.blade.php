@@ -40,7 +40,7 @@
     <label for="Name">Nome tecnologia</label>
     <input type="text" id="name" name="name" class="me-3">
 
-    <button class="btn btn-warning" type="submit">crea</button>
+    <button class="btn btn-success" type="submit">crea</button>
 
 </form>
 </div>
